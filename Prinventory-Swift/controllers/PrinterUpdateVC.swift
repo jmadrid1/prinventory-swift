@@ -227,8 +227,8 @@ class PrinterUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         let model: String = mModelTextField.text!
         let tModel: String = mTModelTextField.text!
         let serial: String = mSerialTextField.text!
-        let status: String = self.mStatus ?? mStatusPickerOptions[mStatusIndex!]
-        let color: String = self.mColor ?? mColorPickerOptions[mColorIndex!]
+        let status: String = mStatus ?? mStatusPickerOptions[mStatusIndex!]
+        let color: String = mColor ?? mColorPickerOptions[mColorIndex!]
         let owner: String = mOwnerTextField.text!
         let dept: String = mDeptTextField.text!
         let location: String = mLocationTextField.text!

@@ -1217,11 +1217,11 @@
                         <outlet property="mMakeTextField" destination="uSf-Ah-zQ5" id="3dG-fC-h1y"/>
                         <outlet property="mModelTextField" destination="u6G-xB-hjm" id="mnr-c5-CuI"/>
                         <outlet property="mOwnerTextField" destination="vaB-6P-dkl" id="rsE-GQ-I8b"/>
+                        <outlet property="mSaveButton" destination="0y3-bI-0yW" id="UfD-5w-PUY"/>
                         <outlet property="mSerialTextField" destination="pcF-Vf-p0y" id="AUM-Cy-QTz"/>
                         <outlet property="mStatusLabel" destination="Gpl-gW-u8U" id="YF7-wN-4Vx"/>
                         <outlet property="mStatusPicker" destination="KSr-3t-3VN" id="MjB-Kr-3SQ"/>
                         <outlet property="mTModelTextField" destination="Xm9-MY-28G" id="60y-c5-6d4"/>
-                        <outlet property="saveButton" destination="0y3-bI-0yW" id="0pO-Ar-7Yv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNw-7O-c78" userLabel="First Responder" sceneMemberID="firstResponder"/>

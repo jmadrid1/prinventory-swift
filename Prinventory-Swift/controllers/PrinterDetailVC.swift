@@ -66,7 +66,7 @@ class PrinterDetailVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PrinterUpdateVC{
-            vc.mSelectedPrinter = self.mSelectedPrinter
+            vc.mSelectedPrinter = mSelectedPrinter
         }
     }
 

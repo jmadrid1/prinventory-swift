@@ -8,7 +8,7 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var mEmptyListLabel: UILabel!
     @IBOutlet weak var mEmptyListImage: UIImageView!
 
-    var vendorList = [Vendor]()
+    var mVendorList = [Vendor]()
     
     var mDatabase: Database?
     
@@ -42,7 +42,7 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func hideTable(){
-        if(vendorList.count == 0){
+        if(mVendorList.count == 0){
             mVendorTable.isHidden = true
             mEmptyListImage.isHidden = false
             mEmptyListLabel.isHidden = false
@@ -55,23 +55,23 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func getVendors(){
 
-        vendorList.removeAll()
+        mVendorList.removeAll()
         
-        vendorList = (mDatabase?.getVendors())!
+        mVendorList = (mDatabase?.getVendors())!
         
         mVendorTable.reloadData()
         hideTable()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vendorList.count
+        return mVendorList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:VendorTableCell = self.mVendorTable.dequeueReusableCell(withIdentifier: "vendorCell") as! VendorTableCell
+        let cell:VendorTableCell = mVendorTable.dequeueReusableCell(withIdentifier: "vendorCell") as! VendorTableCell
         
-        let vendor = vendorList[indexPath.row]
+        let vendor = mVendorList[indexPath.row]
         
         cell.mIconImage.image = UIImage(named: "ic_vendor.png")
         
@@ -94,11 +94,11 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             
-            let toBeDeleted = vendorList[indexPath.row]
+            let toBeDeleted = mVendorList[indexPath.row]
         
             mDatabase?.deleteVendor(rowId: toBeDeleted.id)
 
-            vendorList.remove(at: indexPath.row)
+            mVendorList.remove(at: indexPath.row)
             mVendorTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
 
         }
@@ -106,7 +106,7 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "vendorDetailSegue", sender: vendorList[indexPath.row])
+        performSegue(withIdentifier: "vendorDetailSegue", sender: mVendorList[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

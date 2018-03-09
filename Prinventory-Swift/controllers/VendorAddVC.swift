@@ -154,7 +154,7 @@ class VendorAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         let email: String = mEmailTextField.text!
         let street: String = mStreetTextField.text!
         let city: String = mCityTextField.text!
-        let state: String = self.mState ?? mStatePickerOptions[0]
+        let state: String = mState ?? mStatePickerOptions[0]
         let zipcode: String = mZipcodeTextField.text!
         
         mDatabase?.addVendor(name: name, phone: phone, email: email, street: street, city: city, state: state, zipcode: zipcode)

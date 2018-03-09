@@ -20,7 +20,7 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var mStatusPicker: UIPickerView!
     @IBOutlet weak var mColorPicker: UIPickerView!
     
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var mSaveButton: UIButton!
     
     var mStatusPickerOptions = ["Inactive", "Active"]
     var mColorPickerOptions = ["BW", "Color"]
@@ -85,11 +85,11 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         switch pickerView.tag {
             
-        case 0:
-            mStatus = mStatusPickerOptions[row]
+            case 0:
+                mStatus = mStatusPickerOptions[row]
             
-        case 1:
-            mColor = mColorPickerOptions[row]
+            case 1:
+                mColor = mColorPickerOptions[row]
             
         default:
             break
@@ -203,8 +203,8 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         let model: String = mModelTextField.text!
         let tModel: String = mTModelTextField.text!
         let serial: String = mSerialTextField.text!
-        let status: String = self.mStatus ?? mStatusPickerOptions[0]
-        let color: String = self.mColor ?? mColorPickerOptions[0]
+        let status: String = mStatus ?? mStatusPickerOptions[0]
+        let color: String = mColor ?? mColorPickerOptions[0]
         let owner: String = mOwnerTextField.text!
         let dept: String = mDeptTextField.text!
         let location: String = mLocationTextField.text!

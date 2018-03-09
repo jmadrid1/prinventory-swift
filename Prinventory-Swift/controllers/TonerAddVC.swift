@@ -28,36 +28,16 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     
     @IBOutlet weak var mSaveButton: UIButton!
     
-    @IBAction func blackSteps(_ sender: UIStepper) {
-        mBlackQuantityLabel.text = String(sender.value)
-        mBlackQuantityLabel.sizeToFit()
-    }
-    
-    @IBAction func cyanSteps(_ sender: UIStepper) {
-        mCyanQuantityLabel.text = String(sender.value)
-        mCyanQuantityLabel.sizeToFit()
-    }
-    
-    @IBAction func yellowSteps(_ sender: UIStepper) {
-        mYellowQuantityLabel.text = String(sender.value)
-        mYellowQuantityLabel.sizeToFit()
-    }
-    
-    @IBAction func magentaSteps(_ sender: UIStepper) {
-        mMagentaQuantityLabel.text = String(sender.value)
-        mMagentaQuantityLabel.sizeToFit()
-    }
-    
     var mColorPickerOptions = ["BW", "Color"]
     
-    var color: String?
+    var mColor: String?
     
-    var testDb: Database?
+    var mDatabase: Database?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testDb = Database()
+        mDatabase = Database()
         
         mCyanStepper.isHidden = true
         mCyanLabel.isHidden = true
@@ -101,9 +81,9 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         
-        color = mColorPickerOptions[row]
+        mColor = mColorPickerOptions[row]
         
-        if(color == "Color"){
+        if(mColor == "Color"){
             mCyanStepper.isHidden = false
             mCyanLabel.isHidden = false
             mCyanQuantityLabel.isHidden = false
@@ -173,18 +153,38 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         }
     }
     
+    @IBAction func blackSteps(_ sender: UIStepper) {
+        mBlackQuantityLabel.text = String(sender.value)
+        mBlackQuantityLabel.sizeToFit()
+    }
+    
+    @IBAction func cyanSteps(_ sender: UIStepper) {
+        mCyanQuantityLabel.text = String(sender.value)
+        mCyanQuantityLabel.sizeToFit()
+    }
+    
+    @IBAction func yellowSteps(_ sender: UIStepper) {
+        mYellowQuantityLabel.text = String(sender.value)
+        mYellowQuantityLabel.sizeToFit()
+    }
+    
+    @IBAction func magentaSteps(_ sender: UIStepper) {
+        mMagentaQuantityLabel.text = String(sender.value)
+        mMagentaQuantityLabel.sizeToFit()
+    }
+    
     @IBAction func addToner(){
         
         let make: String = mMakeTextField.text!
         let model: String = mModelTextField.text!
         let tModel: String = mTModelTextField.text!
-        let color: String = self.color ?? mColorPickerOptions[0]
+        let color: String = mColor ?? mColorPickerOptions[0]
         let black: Double = mBlackStepper.value
         let cyan: Double = mCyanStepper.value
         let yellow: Double = mYellowStepper.value
         let magenta: Double = mMagentaStepper.value
         
-        testDb?.addToner(make: make, model: model, tmodel: tModel, color: color, black: black, cyan: cyan, yellow: yellow, magenta: magenta)
+        mDatabase?.addToner(make: make, model: model, tmodel: tModel, color: color, black: black, cyan: cyan, yellow: yellow, magenta: magenta)
         
         self.navigationController?.popViewController(animated: true)
     }

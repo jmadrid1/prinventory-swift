@@ -34,8 +34,8 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         mDatabase = Database()
         
-        let previousState = mSelectedVendor?.state
-        mStateIndex = mStatePickerOptions.index(of: previousState!)
+        let currentState = mSelectedVendor?.state
+        mStateIndex = mStatePickerOptions.index(of: currentState!)
         
         mNameTextField.text = mSelectedVendor?.name
         mPhoneTextField.text = mSelectedVendor?.phone
@@ -56,7 +56,6 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         mZipcodeTextField.returnKeyType = .done
         
         addDoneButton()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -171,7 +170,7 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let email: String = mEmailTextField.text!
         let street: String = mStreetTextField.text!
         let city: String = mCityTextField.text!
-        let state: String = self.mState ?? mStatePickerOptions[mStateIndex!]
+        let state: String = mState ?? mStatePickerOptions[mStateIndex!]
         let zipcode: String = mZipcodeTextField.text!
         
         mDatabase?.updateVendor(id: (mSelectedVendor?.id)!, name: name, phone: phone, email: email, street: street, city: city, state: state, zipcode: zipcode)

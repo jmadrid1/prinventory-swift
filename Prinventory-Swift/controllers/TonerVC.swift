@@ -8,7 +8,7 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var mEmptyListImage: UIImageView!
     @IBOutlet weak var mEmptyListLabel: UILabel!
     
-    var tonerList = [Toner]()
+    var mTonerList = [Toner]()
     
     var mDatabase: Database?
     
@@ -42,7 +42,7 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func hideTable(){
-        if(tonerList.count == 0){
+        if(mTonerList.count == 0){
             mTonerTable.isHidden = true
             mEmptyListImage.isHidden = false
             mEmptyListLabel.isHidden = false
@@ -55,22 +55,22 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func getToners(){
 
-        tonerList.removeAll()
+        mTonerList.removeAll()
         
-        tonerList = (mDatabase?.getToners())!
+        mTonerList = (mDatabase?.getToners())!
         
         mTonerTable.reloadData()
         hideTable()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tonerList.count
+        return mTonerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:TonerTableCell = self.mTonerTable.dequeueReusableCell(withIdentifier: "tonerCell") as! TonerTableCell
+        let cell:TonerTableCell = mTonerTable.dequeueReusableCell(withIdentifier: "tonerCell") as! TonerTableCell
         
-        let toner = tonerList[indexPath.row]
+        let toner = mTonerList[indexPath.row]
         
         cell.mMakeModelLabel.text = toner.make + " " + toner.model
         cell.mTModelLabel.text = toner.tmodel
@@ -91,10 +91,10 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
     
-            let toBeDeleted = tonerList[indexPath.row]
+            let toBeDeleted = mTonerList[indexPath.row]
             mDatabase?.deleteToner(rowId: toBeDeleted.id)
             
-            tonerList.remove(at: indexPath.row)
+            mTonerList.remove(at: indexPath.row)
             mTonerTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             
         }
@@ -102,7 +102,7 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "tonerDetailSegue", sender: tonerList[indexPath.row])
+        performSegue(withIdentifier: "tonerDetailSegue", sender: mTonerList[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

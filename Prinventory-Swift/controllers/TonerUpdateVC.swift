@@ -28,33 +28,10 @@ class TonerUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     
     @IBOutlet weak var mSaveButton: UIButton!
     
-    
-    @IBAction func blackSteps(_ sender: UIStepper) {
-        mBlackQuantityLabel.text = String(sender.value)
-        updatedBlack = sender.value
-        mBlackQuantityLabel.sizeToFit()
-    }
-    
-    @IBAction func cyanSteps(_ sender: UIStepper) {
-        mCyanQuantityLabel.text = String(sender.value)
-        updatedCyan = sender.value
-        mCyanQuantityLabel.sizeToFit()
-        
-    }
-    
-    @IBAction func yellowSteps(_ sender: UIStepper) {
-        mYellowQuantityLabel.text = String(sender.value)
-        updatedYellow = sender.value
-    }
-    
-    @IBAction func magentaSteps(_ sender: UIStepper) {
-        updatedMagenta = sender.value
-    }
-    
     var mSelectedToner: Toner?
     var mColorPickerOptions = ["BW", "Color"]
-    var color: String?
-    var colorIndex: Int?
+    var mColor: String?
+    var mColorIndex: Int?
     
     var updatedBlack: Double?
     var updatedCyan: Double?
@@ -68,9 +45,9 @@ class TonerUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
         mDatabase = Database()
         
-        let previousColor = mSelectedToner?.color
-        colorIndex = mColorPickerOptions.index(of: previousColor!)
-        mColorPicker.selectRow(colorIndex!, inComponent: 0, animated: true)
+        let currentColor = mSelectedToner?.color
+        mColorIndex = mColorPickerOptions.index(of: currentColor!)
+        mColorPicker.selectRow(mColorIndex!, inComponent: 0, animated: true)
         
         mBlackStepper.value = (mSelectedToner?.black)!
         mBlackQuantityLabel.text = String(mBlackStepper.value)
@@ -138,11 +115,10 @@ class TonerUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        color = mColorPickerOptions[row]
         
-        color = mColorPickerOptions[row]
+        mColor = mColorPickerOptions[row]
         
-        if(color == "Color"){
+        if(mColor == "Color"){
             mCyanStepper.isHidden = false
             mCyabLabel.isHidden = false
             mCyanQuantityLabel.isHidden = false
@@ -212,12 +188,34 @@ class TonerUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         }
     }
     
+    @IBAction func blackSteps(_ sender: UIStepper) {
+        mBlackQuantityLabel.text = String(sender.value)
+        updatedBlack = sender.value
+        mBlackQuantityLabel.sizeToFit()
+    }
+    
+    @IBAction func cyanSteps(_ sender: UIStepper) {
+        mCyanQuantityLabel.text = String(sender.value)
+        updatedCyan = sender.value
+        mCyanQuantityLabel.sizeToFit()
+        
+    }
+    
+    @IBAction func yellowSteps(_ sender: UIStepper) {
+        mYellowQuantityLabel.text = String(sender.value)
+        updatedYellow = sender.value
+    }
+    
+    @IBAction func magentaSteps(_ sender: UIStepper) {
+        updatedMagenta = sender.value
+    }
+    
     @IBAction func updateToner(){
         
         let make: String = mMakeTextField.text!
         let model: String = mModelTextField.text!
         let tModel: String = mTModelTextField.text!
-        let color: String = self.color ?? mColorPickerOptions[colorIndex!]
+        let color: String = mColor ?? mColorPickerOptions[mColorIndex!]
         let black: Double = mBlackStepper.value
         let cyan: Double = mCyanStepper.value
         let yellow: Double = mYellowStepper.value

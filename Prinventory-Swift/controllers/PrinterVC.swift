@@ -2,12 +2,8 @@
 import UIKit
 
 class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
-    
-    var printerVC: UIViewController?
-    var tonerVC: UIViewController?
-    var vendorVC: UIViewController?
-    
-    var printerList = [Printer]()
+
+    var mPrinterList = [Printer]()
     
     var mDatabase: Database?
     
@@ -41,7 +37,7 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func hideTable(){
-        if(printerList.count == 0){
+        if(mPrinterList.count == 0){
             mPrinterTable.isHidden = true
             mEmptyListImage.isHidden = false
             mEmptyListLabel.isHidden = false
@@ -59,12 +55,9 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     func getPrinters(){
         
-        print("Fetching Started")
-        printerList.removeAll()
+        mPrinterList.removeAll()
         
-        printerList = (mDatabase?.getPrinters())!
-        print("Size of printers after grabbing from SQL")
-        print(printerList.count)
+        mPrinterList = (mDatabase?.getPrinters())!
         
         mPrinterTable.reloadData()
         hideTable()
@@ -72,14 +65,14 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return printerList.count
+        return mPrinterList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:PrinterTableCell = self.mPrinterTable.dequeueReusableCell(withIdentifier: "printerCell") as! PrinterTableCell
+        let cell:PrinterTableCell = mPrinterTable.dequeueReusableCell(withIdentifier: "printerCell") as! PrinterTableCell
         
-        let printer = printerList[indexPath.row]
+        let printer = mPrinterList[indexPath.row]
         
         cell.mIconImage.image = UIImage(named: "ic_printer.png")
         
@@ -114,18 +107,18 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             
-            let toBeDeleted = printerList[indexPath.row]
+            let toBeDeleted = mPrinterList[indexPath.row]
             
             mDatabase?.deletePrinter(rowId: toBeDeleted.id)
             
-            printerList.remove(at: indexPath.row)
+            mPrinterList.remove(at: indexPath.row)
             mPrinterTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
         hideTable()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "printerDetailSegue", sender: printerList[indexPath.row])
+        performSegue(withIdentifier: "printerDetailSegue", sender: mPrinterList[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

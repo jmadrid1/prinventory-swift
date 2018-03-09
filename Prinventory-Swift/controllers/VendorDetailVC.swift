@@ -43,7 +43,7 @@ class VendorDetailVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? VendorUpdateVC{
-            vc.mSelectedVendor = self.mSelectedVendor
+            vc.mSelectedVendor = mSelectedVendor
         }
     }
 
