@@ -3,13 +3,15 @@ import UIKit
 
 class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
 
+    @IBOutlet weak var mEmptyView: UIView!
+    @IBOutlet weak var mEmptyListImage: UIImageView!
+    @IBOutlet weak var mEmptyListLabel: UILabel!
+    
+    @IBOutlet weak var mPrinterTable: UITableView!
+    
     var mPrinterList = [Printer]()
     
     var mDatabase: Database?
-    
-    @IBOutlet weak var mPrinterTable: UITableView!
-    @IBOutlet weak var mEmptyListImage: UIImageView!
-    @IBOutlet weak var mEmptyListLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +20,8 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         mDatabase?.createTable()
         
         mEmptyListImage.image = UIImage(named: "ic_list_empty.png")
-        mEmptyListImage.isHidden = true
-       
         mEmptyListLabel.text = "There are currently no printers available to show"
         mEmptyListLabel.sizeToFit()
-        mEmptyListLabel.isHidden = true
         
         hideTable()
         
@@ -55,16 +54,13 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
      */
     func hideTable(){
         if(mPrinterList.count == 0){
+            mEmptyView.isHidden = false
             mPrinterTable.isHidden = true
-            mEmptyListImage.isHidden = false
-            mEmptyListLabel.isHidden = false
         }else{
+            mEmptyView.isHidden = true
             mPrinterTable.isHidden = false
-            mEmptyListImage.isHidden = true
-            mEmptyListLabel.isHidden = true
         }
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mPrinterList.count

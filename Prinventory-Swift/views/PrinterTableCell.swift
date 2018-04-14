@@ -15,7 +15,6 @@ class PrinterTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        mMakeLabel.textColor = UIColor.lightGray
         mLocationLabel.textColor = UIColor.lightGray
         mIPLabel.textColor = UIColor.lightGray
         

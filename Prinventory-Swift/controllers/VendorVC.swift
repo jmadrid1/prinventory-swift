@@ -3,10 +3,11 @@ import UIKit
 
 class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var mVendorTable: UITableView!
-    
-    @IBOutlet weak var mEmptyListLabel: UILabel!
+    @IBOutlet weak var mEmptyView: UIView!
     @IBOutlet weak var mEmptyListImage: UIImageView!
+    @IBOutlet weak var mEmptyListLabel: UILabel!
+    
+    @IBOutlet weak var mVendorTable: UITableView!
 
     var mVendorList = [Vendor]()
     
@@ -19,11 +20,8 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         mDatabase?.createTable()
         
         mEmptyListImage.image = UIImage(named: "ic_list_empty.png")
-        mEmptyListImage.isHidden = true
-        
         mEmptyListLabel.text = "There are currently no vendors available to show"
         mEmptyListLabel.sizeToFit()
-        mEmptyListLabel.isHidden = true
         
         hideTable()
         
@@ -56,13 +54,11 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
      */
     func hideTable(){
         if(mVendorList.count == 0){
+            mEmptyView.isHidden = false
             mVendorTable.isHidden = true
-            mEmptyListImage.isHidden = false
-            mEmptyListLabel.isHidden = false
         }else{
+            mEmptyView.isHidden = true
             mVendorTable.isHidden = false
-            mEmptyListImage.isHidden = true
-            mEmptyListLabel.isHidden = true
         }
     }
     

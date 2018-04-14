@@ -3,10 +3,11 @@ import UIKit
 
 class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var mTonerTable: UITableView!
-    
+    @IBOutlet weak var mEmptyView: UIView!
     @IBOutlet weak var mEmptyListImage: UIImageView!
     @IBOutlet weak var mEmptyListLabel: UILabel!
+    
+    @IBOutlet weak var mTonerTable: UITableView!
     
     var mTonerList = [Toner]()
     
@@ -19,11 +20,8 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         mDatabase?.createTable()
         
         mEmptyListImage.image = UIImage(named: "ic_list_empty.png")
-        mEmptyListImage.isHidden = true
-        
         mEmptyListLabel.text = "There are currently no toners available to show"
         mEmptyListLabel.sizeToFit()
-        mEmptyListLabel.isHidden = true
         
         hideTable()
         
@@ -56,13 +54,11 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
      */
     func hideTable(){
         if(mTonerList.count == 0){
+            mEmptyView.isHidden = false
             mTonerTable.isHidden = true
-            mEmptyListImage.isHidden = false
-            mEmptyListLabel.isHidden = false
         }else{
+            mEmptyView.isHidden = true
             mTonerTable.isHidden = false
-            mEmptyListImage.isHidden = true
-            mEmptyListLabel.isHidden = true
         }
     }
     

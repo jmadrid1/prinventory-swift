@@ -11,7 +11,13 @@ class VendorTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+     
+        mPhoneLabel.textColor = UIColor.lightGray
+        mEmailLabel.textColor = UIColor.lightGray
+        
         mNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        mPhoneLabel.font = UIFont.systemFont(ofSize: 14)
+        mEmailLabel.font = UIFont.systemFont(ofSize: 14)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
