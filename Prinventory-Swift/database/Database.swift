@@ -55,6 +55,9 @@ class Database{
         }
     }
     
+    /**
+     Creates the database schema for Prinventory
+    */
     func createTable(){
         
         var createTable = mPrinterTable.create {

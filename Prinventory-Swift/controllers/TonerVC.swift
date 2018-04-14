@@ -27,7 +27,7 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         hideTable()
         
-        mTonerTable.rowHeight = 90
+        mTonerTable.rowHeight = 50
         mTonerTable.reloadData()
     }
     
@@ -41,6 +41,19 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         hideTable()
     }
     
+    func getToners(){
+
+        mTonerList.removeAll()
+        
+        mTonerList = (mDatabase?.getToners())!
+        
+        mTonerTable.reloadData()
+        hideTable()
+    }
+    
+    /**
+     Hides TableView if list does not contain any toners and shows "Empty List" comment
+     */
     func hideTable(){
         if(mTonerList.count == 0){
             mTonerTable.isHidden = true
@@ -51,16 +64,6 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             mEmptyListImage.isHidden = true
             mEmptyListLabel.isHidden = true
         }
-    }
-    
-    func getToners(){
-
-        mTonerList.removeAll()
-        
-        mTonerList = (mDatabase?.getToners())!
-        
-        mTonerTable.reloadData()
-        hideTable()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,6 +108,9 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "tonerDetailSegue", sender: mTonerList[indexPath.row])
     }
     
+    /**
+     Passes the selected toner object from TableView row to the TonerDetailVC
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? TonerDetailVC{
             vc.mSelectedToner = (sender as? Toner)!

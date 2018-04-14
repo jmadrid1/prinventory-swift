@@ -11,8 +11,12 @@ class TonerTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       
+        mTModelLabel.textColor = UIColor.lightGray
         
-         mMakeModelLabel.font = UIFont.boldSystemFont(ofSize: mMakeModelLabel.font.pointSize)
+        mMakeModelLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        mTModelLabel.font = UIFont.systemFont(ofSize: 17)
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

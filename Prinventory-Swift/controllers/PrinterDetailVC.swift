@@ -3,8 +3,8 @@ import UIKit
 
 class PrinterDetailVC: UIViewController {
 
-    @IBOutlet weak var mIconImage: UIImageView!
     @IBOutlet weak var mStatusImage: UIImageView!
+    @IBOutlet weak var mIconImage: UIImageView!
     @IBOutlet weak var mColorImage: UIImageView!
     
     @IBOutlet weak var mMakeModelLabel: UILabel!
@@ -23,8 +23,12 @@ class PrinterDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mMakeModelLabel.font = UIFont.boldSystemFont(ofSize: mMakeModelLabel.font.pointSize)
+        mStatusImage.image = UIImage(named: "ic_status_active.png")
+        mIconImage.image = UIImage(named: "ic_printer.png")
+        mColorImage.image = UIImage(named: "ic_status_active.png")
+        
         mMakeModelLabel.text = (mSelectedPrinter?.make)! + " " + (mSelectedPrinter?.model)!
+        
         mTModelLabel.text = "Toner Model:    " + (mSelectedPrinter?.tmodel)!
         mSerialLabel.text = "Serial:    " + (mSelectedPrinter?.serial)!
         mStatusLabel.text = "Status:     " + (mSelectedPrinter?.status)!
@@ -34,6 +38,27 @@ class PrinterDetailVC: UIViewController {
         mLocationLabel.text = "Location:     " + (mSelectedPrinter?.location)!
         mFloorLabel.text = "Floor:   " + (mSelectedPrinter?.floor)!
         mIPLabel.text = "IP:     " + (mSelectedPrinter?.ip)!
+        
+        mTModelLabel.textColor = UIColor.lightGray
+        mSerialLabel.textColor = UIColor.lightGray
+        mStatusLabel.textColor = UIColor.lightGray
+        mColorLabel.textColor = UIColor.lightGray
+        mOwnerLabel.textColor = UIColor.lightGray
+        mDeptLabel.textColor = UIColor.lightGray
+        mLocationLabel.textColor = UIColor.lightGray
+        mFloorLabel.textColor = UIColor.lightGray
+        mIPLabel.textColor = UIColor.lightGray
+        
+        mMakeModelLabel.font = UIFont.boldSystemFont(ofSize: 19)
+        mTModelLabel.font = UIFont.systemFont(ofSize: 17)
+        mSerialLabel.font = UIFont.systemFont(ofSize: 17)
+        mStatusLabel.font = UIFont.systemFont(ofSize: 17)
+        mColorLabel.font = UIFont.systemFont(ofSize: 17)
+        mOwnerLabel.font = UIFont.systemFont(ofSize: 17)
+        mDeptLabel.font = UIFont.systemFont(ofSize: 17)
+        mLocationLabel.font = UIFont.systemFont(ofSize: 17)
+        mFloorLabel.font = UIFont.systemFont(ofSize: 17)
+        mIPLabel.font = UIFont.systemFont(ofSize: 17)
         
         mMakeModelLabel.sizeToFit()
         mTModelLabel.sizeToFit()
@@ -64,6 +89,9 @@ class PrinterDetailVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    /**
+     Passes Printer object to PrinterUpdateVC
+    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PrinterUpdateVC{
             vc.mSelectedPrinter = mSelectedPrinter

@@ -3,22 +3,21 @@ import UIKit
 
 class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var mIconImage: UIImageView!
+    
+    @IBOutlet weak var mMakeLabel: UILabel!
+    @IBOutlet weak var mModelLabel: UILabel!
+    @IBOutlet weak var mTModelLabel: UILabel!
+    
     @IBOutlet weak var mMakeTextField: UITextField!
     @IBOutlet weak var mModelTextField: UITextField!
     @IBOutlet weak var mTModelTextField: UITextField!
     
     @IBOutlet weak var mColorPicker: UIPickerView!
     
-    @IBOutlet weak var mBlackLabel: UILabel!
     @IBOutlet weak var mBlackQuantityLabel: UILabel!
-    
-    @IBOutlet weak var mCyanLabel: UILabel!
     @IBOutlet weak var mCyanQuantityLabel: UILabel!
-    
-    @IBOutlet weak var mYellowLabel: UILabel!
     @IBOutlet weak var mYellowQuantityLabel: UILabel!
-    
-    @IBOutlet weak var mMagentaLabel: UILabel!
     @IBOutlet weak var mMagentaQuantityLabel: UILabel!
     
     @IBOutlet weak var mBlackStepper: UIStepper!
@@ -39,27 +38,53 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
         mDatabase = Database()
         
+        mIconImage.image = UIImage(named: "ic_toner.png")
+        
+        mMakeLabel.text = "Make:"
+        mModelLabel.text = "Model:"
+        mTModelLabel.text = "TModel:"
+        
+        mMakeLabel.font = UIFont.systemFont(ofSize: 14)
+        mModelLabel.font = UIFont.systemFont(ofSize: 14)
+        mTModelLabel.font = UIFont.systemFont(ofSize: 14)
+       
+        mMakeTextField.tag = 0
+        mModelTextField.tag = 1
+        mTModelTextField.tag = 2
+        
+        mMakeTextField.placeholder = "Enter Make"
+        mModelTextField.placeholder = "Enter Model"
+        mTModelTextField.placeholder = "Enter Toner Model"
+        
         mCyanStepper.isHidden = true
-        mCyanLabel.isHidden = true
         mCyanQuantityLabel.isHidden = true
         
         mYellowStepper.isHidden = true
-        mYellowLabel.isHidden = true
         mYellowQuantityLabel.isHidden = true
         
         mMagentaStepper.isHidden = true
-        mMagentaLabel.isHidden = true
         mMagentaQuantityLabel.isHidden = true
         
         mMakeTextField.returnKeyType = .done
         mModelTextField.returnKeyType = .done
         mTModelTextField.returnKeyType = .done
         
+        mBlackQuantityLabel.text = "Black:       " + String(mBlackStepper.value)
+        mCyanQuantityLabel.text = "Cyan:        " + String(mCyanStepper.value)
+        mYellowQuantityLabel.text = "Yellow:      " + String(mYellowStepper.value)
+        mMagentaQuantityLabel.text = "Magenta:  " + String(mMagentaStepper.value)
+        
+        mBlackQuantityLabel.font = UIFont.systemFont(ofSize: 14)
+        mCyanQuantityLabel.font = UIFont.systemFont(ofSize: 14)
+        mYellowQuantityLabel.font = UIFont.systemFont(ofSize: 14)
+        mMagentaQuantityLabel.font = UIFont.systemFont(ofSize: 14)
+        
         mBlackQuantityLabel.sizeToFit()
         mCyanQuantityLabel.sizeToFit()
         mYellowQuantityLabel.sizeToFit()
         mMagentaQuantityLabel.sizeToFit()
         
+        mSaveButton.titleLabel?.text = "Save"
     }
     
     
@@ -79,33 +104,31 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         return "\(mColorPickerOptions[row])"
     }
     
+    
+    /**
+     Hides/Shows the corresponding UILabels and UISteppers based on the UIPickerView selection
+    */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         
         mColor = mColorPickerOptions[row]
         
         if(mColor == "Color"){
             mCyanStepper.isHidden = false
-            mCyanLabel.isHidden = false
             mCyanQuantityLabel.isHidden = false
             
             mYellowStepper.isHidden = false
-            mYellowLabel.isHidden = false
             mYellowQuantityLabel.isHidden = false
             
             mMagentaStepper.isHidden = false
-            mMagentaLabel.isHidden = false
             mMagentaQuantityLabel.isHidden = false
         }else{
             mCyanStepper.isHidden = true
-            mCyanLabel.isHidden = true
             mCyanQuantityLabel.isHidden = true
             
             mYellowStepper.isHidden = true
-            mYellowLabel.isHidden = true
             mYellowQuantityLabel.isHidden = true
             
             mMagentaStepper.isHidden = true
-            mMagentaLabel.isHidden = true
             mMagentaQuantityLabel.isHidden = true
         }
     }
@@ -131,6 +154,9 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         }
     }
     
+    /**
+     Limits the amount of characters for the specified TextFields
+     */
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         guard let text = textField.text else { return true }
@@ -154,25 +180,28 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     @IBAction func blackSteps(_ sender: UIStepper) {
-        mBlackQuantityLabel.text = String(sender.value)
+        mBlackQuantityLabel.text = "Black:       " + String(sender.value)
         mBlackQuantityLabel.sizeToFit()
     }
     
     @IBAction func cyanSteps(_ sender: UIStepper) {
-        mCyanQuantityLabel.text = String(sender.value)
+        mCyanQuantityLabel.text = "Cyan:        " + String(sender.value)
         mCyanQuantityLabel.sizeToFit()
     }
     
     @IBAction func yellowSteps(_ sender: UIStepper) {
-        mYellowQuantityLabel.text = String(sender.value)
+        mYellowQuantityLabel.text = "Yellow:      " + String(sender.value)
         mYellowQuantityLabel.sizeToFit()
     }
     
     @IBAction func magentaSteps(_ sender: UIStepper) {
-        mMagentaQuantityLabel.text = String(sender.value)
+        mMagentaQuantityLabel.text = "Magenta:  " + String(sender.value)
         mMagentaQuantityLabel.sizeToFit()
     }
     
+    /**
+     Saves toner to the SQLite Database based off of input from TextFields, UIPickerView & UIStepper values.
+     */
     @IBAction func addToner(){
         
         let make: String = mMakeTextField.text!

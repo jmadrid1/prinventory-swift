@@ -15,7 +15,13 @@ class PrinterTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        mMakeLabel.font = UIFont.boldSystemFont(ofSize: mMakeLabel.font.pointSize)
+        mMakeLabel.textColor = UIColor.lightGray
+        mLocationLabel.textColor = UIColor.lightGray
+        mIPLabel.textColor = UIColor.lightGray
+        
+        mMakeLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        mLocationLabel.font = UIFont.systemFont(ofSize: 14)
+        mIPLabel.font = UIFont.systemFont(ofSize: 14)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

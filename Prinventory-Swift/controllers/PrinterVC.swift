@@ -26,8 +26,12 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         
         hideTable()
         
-        mPrinterTable.rowHeight = 90
+        mPrinterTable.rowHeight = 50
         mPrinterTable.reloadData()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,6 +40,19 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         hideTable()
     }
     
+    func getPrinters(){
+        
+        mPrinterList.removeAll()
+        
+        mPrinterList = (mDatabase?.getPrinters())!
+        
+        mPrinterTable.reloadData()
+        hideTable()
+    }
+    
+    /**
+     Hides TableView if list does not contain any printers and shows "Empty List" comment
+     */
     func hideTable(){
         if(mPrinterList.count == 0){
             mPrinterTable.isHidden = true
@@ -46,21 +63,6 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             mEmptyListImage.isHidden = true
             mEmptyListLabel.isHidden = true
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
-    func getPrinters(){
-        
-        mPrinterList.removeAll()
-        
-        mPrinterList = (mDatabase?.getPrinters())!
-        
-        mPrinterTable.reloadData()
-        hideTable()
     }
     
     
@@ -121,6 +123,9 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         performSegue(withIdentifier: "printerDetailSegue", sender: mPrinterList[indexPath.row])
     }
     
+    /**
+     Passes the selected printer object from TableView row to the PrinterDetailVC
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PrinterDetailVC{
             vc.mSelectedPrinter = (sender as? Printer)!

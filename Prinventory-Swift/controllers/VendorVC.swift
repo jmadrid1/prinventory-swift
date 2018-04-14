@@ -27,7 +27,7 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         hideTable()
         
-        mVendorTable.rowHeight = 80
+        mVendorTable.rowHeight = 50
         mVendorTable.reloadData()
     }
     
@@ -41,6 +41,19 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         hideTable()
     }
     
+    func getVendors(){
+
+        mVendorList.removeAll()
+        
+        mVendorList = (mDatabase?.getVendors())!
+        
+        mVendorTable.reloadData()
+        hideTable()
+    }
+    
+    /**
+     Hides TableView if list does not contain any vendors and shows "Empty List" comment
+     */
     func hideTable(){
         if(mVendorList.count == 0){
             mVendorTable.isHidden = true
@@ -51,16 +64,6 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             mEmptyListImage.isHidden = true
             mEmptyListLabel.isHidden = true
         }
-    }
-    
-    func getVendors(){
-
-        mVendorList.removeAll()
-        
-        mVendorList = (mDatabase?.getVendors())!
-        
-        mVendorTable.reloadData()
-        hideTable()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,6 +112,9 @@ class VendorVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "vendorDetailSegue", sender: mVendorList[indexPath.row])
     }
     
+    /**
+     Passes the selected vendor object from TableView row to the VendorDetailVC
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? VendorDetailVC{
             vc.mSelectedVendor = (sender as? Vendor)!

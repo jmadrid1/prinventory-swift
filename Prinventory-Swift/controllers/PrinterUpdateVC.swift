@@ -2,6 +2,20 @@
 import UIKit
 
 class PrinterUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var mIconImage: UIImageView!
+    
+    @IBOutlet weak var mMakeLabel: UILabel!
+    @IBOutlet weak var mModelLabel: UILabel!
+    @IBOutlet weak var mTModelLabel: UILabel!
+    @IBOutlet weak var mSerialLabel: UILabel!
+    @IBOutlet weak var mStatusLabel: UILabel!
+    @IBOutlet weak var mColorLabel: UILabel!
+    @IBOutlet weak var mOwnerLabel: UILabel!
+    @IBOutlet weak var mDeptLabel: UILabel!
+    @IBOutlet weak var mLocationLabel: UILabel!
+    @IBOutlet weak var mFloorLabel: UILabel!
+    @IBOutlet weak var mIpLabel: UILabel!
 
     @IBOutlet weak var mMakeTextField: UITextField!
     @IBOutlet weak var mModelTextField: UITextField!
@@ -36,6 +50,52 @@ class PrinterUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         
         mDatabase = Database()
         
+        mIconImage.image = UIImage(named: "ic_printer.png")
+        
+        mMakeLabel.text = "Make:"
+        mModelLabel.text = "Model:"
+        mTModelLabel.text = "TModel:"
+        mSerialLabel.text = "Serial:"
+        mStatusLabel.text = "Status:"
+        mColorLabel.text = "Color:"
+        mOwnerLabel.text = "Owner:"
+        mDeptLabel.text = "Department:"
+        mLocationLabel.text = "Location:"
+        mFloorLabel.text = "Floor:"
+        mIpLabel.text = "IP:"
+        
+        mMakeLabel.font = UIFont.systemFont(ofSize: 14)
+        mModelLabel.font = UIFont.systemFont(ofSize: 14)
+        mTModelLabel.font = UIFont.systemFont(ofSize: 14)
+        mSerialLabel.font = UIFont.systemFont(ofSize: 14)
+        mStatusLabel.font = UIFont.systemFont(ofSize: 14)
+        mColorLabel.font = UIFont.systemFont(ofSize: 14)
+        mOwnerLabel.font = UIFont.systemFont(ofSize: 14)
+        mDeptLabel.font = UIFont.systemFont(ofSize: 14)
+        mLocationLabel.font = UIFont.systemFont(ofSize: 14)
+        mFloorLabel.font = UIFont.systemFont(ofSize: 14)
+        mIpLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        mMakeTextField.tag = 0
+        mModelTextField.tag = 1
+        mTModelTextField.tag = 2
+        mSerialTextField.tag = 3
+        mOwnerTextField.tag = 4
+        mDeptTextField.tag = 5
+        mLocationTextField.tag = 6
+        mFloorTextField.tag = 7
+        mIPTextField.tag = 8
+        
+        mMakeTextField.placeholder = "Enter Make"
+        mModelTextField.placeholder = "Enter Model"
+        mTModelTextField.placeholder = "Enter Toner Model"
+        mSerialTextField.placeholder = "Enter Serial"
+        mOwnerTextField.placeholder = "Enter Owner"
+        mDeptTextField.placeholder = "Enter Department"
+        mLocationTextField.placeholder = "Enter Location"
+        mFloorTextField.placeholder = "Enter Floor"
+        mIPTextField.placeholder = "Enter IP"
+        
         let currentStatus = mSelectedPrinter?.status
         mStatusIndex = mStatusPickerOptions.index(of: currentStatus!)
         
@@ -66,6 +126,8 @@ class PrinterUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         mIPTextField.keyboardType = UIKeyboardType.numberPad
         
         addDoneButton()
+        
+        mSaveButton.titleLabel?.text = "Save Changes"
     }
     
     override func didReceiveMemoryWarning() {
@@ -165,6 +227,9 @@ class PrinterUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         }
     }
     
+    /**
+     Limits the amount of characters for the specified TextFields and makes specific Textfields input strictly numeric
+     */
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let allowedCharacters = CharacterSet.decimalDigits
@@ -208,6 +273,9 @@ class PrinterUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         }
     }
     
+    /**
+     Attaches a "Done" UIBarButtonItem to TextFields that are strictly numeric
+     */
     func addDoneButton(){
         let toolbarDone = UIToolbar.init()
         toolbarDone.sizeToFit()
@@ -217,10 +285,16 @@ class PrinterUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         mIPTextField.inputAccessoryView = toolbarDone
     }
     
+    /**
+     Resigns the First Responsder of the Textfield
+     */
     @objc func resignmIPTextField(){
         mIPTextField.resignFirstResponder()
     }
     
+    /**
+     Updates the printer's information based on TextFields & UIPickerView value
+    */
     @IBAction func updatePrinter(){
         
         let make: String = mMakeTextField.text!

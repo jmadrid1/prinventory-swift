@@ -5,6 +5,18 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     
     @IBOutlet weak var mIconImage: UIImageView!
     
+    @IBOutlet weak var mMakeLabel: UILabel!
+    @IBOutlet weak var mModelLabel: UILabel!
+    @IBOutlet weak var mTModelLabel: UILabel!
+    @IBOutlet weak var mSerialLabel: UILabel!
+    @IBOutlet weak var mStatusLabel: UILabel!
+    @IBOutlet weak var mColorLabel: UILabel!
+    @IBOutlet weak var mOwnerLabel: UILabel!
+    @IBOutlet weak var mDeptLabel: UILabel!
+    @IBOutlet weak var mLocationLabel: UILabel!
+    @IBOutlet weak var mFloorLabel: UILabel!
+    @IBOutlet weak var mIpLabel: UILabel!
+    
     @IBOutlet weak var mMakeTextField: UITextField!
     @IBOutlet weak var mModelTextField: UITextField!
     @IBOutlet weak var mTModelTextField: UITextField!
@@ -15,8 +27,6 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var mFloorTextField: UITextField!
     @IBOutlet weak var mIPTextField: UITextField!
     
-    @IBOutlet weak var mColorLabel: UILabel!
-    @IBOutlet weak var mStatusLabel: UILabel!
     @IBOutlet weak var mStatusPicker: UIPickerView!
     @IBOutlet weak var mColorPicker: UIPickerView!
     
@@ -35,6 +45,52 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         
         mDatabase = Database()
         
+        mIconImage.image = UIImage(named: "ic_printer.png")
+        
+        mMakeLabel.text = "Make:"
+        mModelLabel.text = "Model:"
+        mTModelLabel.text = "TModel:"
+        mSerialLabel.text = "Serial:"
+        mStatusLabel.text = "Status:"
+        mColorLabel.text = "Color:"
+        mOwnerLabel.text = "Owner:"
+        mDeptLabel.text = "Department:"
+        mLocationLabel.text = "Location:"
+        mFloorLabel.text = "Floor:"
+        mIpLabel.text = "IP:"
+        
+        mMakeLabel.font = UIFont.systemFont(ofSize: 14)
+        mModelLabel.font = UIFont.systemFont(ofSize: 14)
+        mTModelLabel.font = UIFont.systemFont(ofSize: 14)
+        mSerialLabel.font = UIFont.systemFont(ofSize: 14)
+        mStatusLabel.font = UIFont.systemFont(ofSize: 14)
+        mColorLabel.font = UIFont.systemFont(ofSize: 14)
+        mOwnerLabel.font = UIFont.systemFont(ofSize: 14)
+        mDeptLabel.font = UIFont.systemFont(ofSize: 14)
+        mLocationLabel.font = UIFont.systemFont(ofSize: 14)
+        mFloorLabel.font = UIFont.systemFont(ofSize: 14)
+        mIpLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        mMakeTextField.tag = 0
+        mModelTextField.tag = 1
+        mTModelTextField.tag = 2
+        mSerialTextField.tag = 3
+        mOwnerTextField.tag = 4
+        mDeptTextField.tag = 5
+        mLocationTextField.tag = 6
+        mFloorTextField.tag = 7
+        mIPTextField.tag = 8
+        
+        mMakeTextField.placeholder = "Enter Make"
+        mModelTextField.placeholder = "Enter Model"
+        mTModelTextField.placeholder = "Enter Toner Model"
+        mSerialTextField.placeholder = "Enter Serial"
+        mOwnerTextField.placeholder = "Enter Owner"
+        mDeptTextField.placeholder = "Enter Department"
+        mLocationTextField.placeholder = "Enter Location"
+        mFloorTextField.placeholder = "Enter Floor"
+        mIPTextField.placeholder = "Enter IP"
+        
         mMakeTextField.returnKeyType = .done
         mModelTextField.returnKeyType = .done
         mTModelTextField.returnKeyType = .done
@@ -47,6 +103,8 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         mIPTextField.keyboardType = UIKeyboardType.numberPad
         
         addDoneButton()
+        
+        mSaveButton.titleLabel?.text = "Save"
     }
     
     
@@ -141,6 +199,9 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         }
     }
     
+    /**
+     Limits the amount of characters for the specified TextFields and makes specific Textfields input strictly numeric
+     */
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let allowedCharacters = CharacterSet.decimalDigits
@@ -184,6 +245,9 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         }
     }
     
+    /**
+     Attaches a "Done" UIBarButtonItem to TextFields that are strictly numeric
+    */
     func addDoneButton(){
         let toolbarDone = UIToolbar.init()
         toolbarDone.sizeToFit()
@@ -193,10 +257,16 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         mIPTextField.inputAccessoryView = toolbarDone
     }
     
+    /**
+     Resigns the First Responsder of the Textfield
+    */
     @objc func resignmIPTextField(){
         mIPTextField.resignFirstResponder()
     }
     
+    /**
+     Saves printer to the SQLite Database based off of input from TextFields.
+    */
     @IBAction func addPrinter(){
         
         let make: String = mMakeTextField.text!
@@ -210,7 +280,6 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         let location: String = mLocationTextField.text!
         let floor: String = mFloorTextField.text!
         let ip: String = mIPTextField.text!
-        
         
         mDatabase?.addPrinter(make: make, model: model, tmodel: tModel, serial: serial, status: status, color: color, owner: owner, department: dept, location: location, floor: floor, ip: ip)
     

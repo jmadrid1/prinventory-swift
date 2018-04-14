@@ -5,6 +5,14 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     @IBOutlet weak var mIconImage: UIImageView!
     
+    @IBOutlet weak var mNameLabel: UILabel!
+    @IBOutlet weak var mPhoneLabel: UILabel!
+    @IBOutlet weak var mEmailLabel: UILabel!
+    @IBOutlet weak var mStreetLabel: UILabel!
+    @IBOutlet weak var mCityLabel: UILabel!
+    @IBOutlet weak var mStateLabel: UILabel!
+    @IBOutlet weak var mZipcodeLabel: UILabel!
+    
     @IBOutlet weak var mNameTextField: UITextField!
     @IBOutlet weak var mPhoneTextField: UITextField!
     @IBOutlet weak var mEmailTextField: UITextField!
@@ -34,6 +42,38 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         mDatabase = Database()
         
+        mIconImage.image = UIImage(named: "ic_vendor.png")
+        
+        mNameLabel.text = "Name:"
+        mPhoneLabel.text = "Phone:"
+        mEmailLabel.text = "Email:"
+        mStreetLabel.text = "Street:"
+        mCityLabel.text = "City:"
+        mStateLabel.text = "State:"
+        mZipcodeLabel.text = "Zipcode:"
+        
+        mNameLabel.font = UIFont.systemFont(ofSize: 14)
+        mPhoneLabel.font = UIFont.systemFont(ofSize: 14)
+        mEmailLabel.font = UIFont.systemFont(ofSize: 14)
+        mStreetLabel.font = UIFont.systemFont(ofSize: 14)
+        mCityLabel.font = UIFont.systemFont(ofSize: 14)
+        mStateLabel.font = UIFont.systemFont(ofSize: 14)
+        mZipcodeLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        mNameTextField.tag = 0
+        mPhoneTextField.tag = 1
+        mEmailTextField.tag = 2
+        mStreetTextField.tag = 3
+        mCityTextField.tag = 4
+        mZipcodeTextField.tag = 5
+        
+        mNameTextField.placeholder = "Enter Make"
+        mPhoneTextField.placeholder = "XXX-XXX-XXXX"
+        mEmailTextField.placeholder = "Enter Email"
+        mStreetTextField.placeholder = "Enter Street"
+        mCityTextField.placeholder = "Enter City"
+        mZipcodeTextField.placeholder = "Enter Zipcode"
+        
         let currentState = mSelectedVendor?.state
         mStateIndex = mStatePickerOptions.index(of: currentState!)
         
@@ -56,6 +96,8 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         mZipcodeTextField.returnKeyType = .done
         
         addDoneButton()
+        
+        mSaveButton.titleLabel?.text = "Save Changes"
     }
     
     override func didReceiveMemoryWarning() {
@@ -112,6 +154,9 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
+    /**
+     Limits the amount of characters for the specified TextFields and makes specific Textfields input strictly numeric
+     */
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let allowedCharacters = CharacterSet.decimalDigits
@@ -147,6 +192,9 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
+    /**
+     Attaches a "Done" UIBarButtonItem to TextFields that are strictly numeric
+     */
     func addDoneButton(){
         let toolbarDone = UIToolbar.init()
         toolbarDone.sizeToFit()
@@ -158,11 +206,17 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         mZipcodeTextField.inputAccessoryView = toolbarDone
     }
     
+    /**
+     Resigns the First Responsder of the Textfields
+     */
     @objc func resignTextFields(){
         mPhoneTextField.resignFirstResponder()
         mZipcodeTextField.resignFirstResponder()
     }
     
+    /**
+     Updates the vendor's information based on TextFields, UIStepper & UIPickerView values
+     */
     @IBAction func updateVendor(){
         
         let name: String = mNameTextField.text!

@@ -23,7 +23,10 @@ class TonerDetailVC: UIViewController {
         let yellowQuantity: String = (mSelectedToner?.black.description)!
         let magentaQuantity: String = (mSelectedToner?.black.description)!
         
+        mIconImage.image = UIImage(named: "ic_toner.png")
+        
         mMakeModelLabel.text = (mSelectedToner?.make)! + " " + (mSelectedToner?.model)!
+        
         mTModelLabel.text = "Toner Model:    " + (mSelectedToner?.tmodel)!
         mColorLabel.text = "Color:   " + (mSelectedToner?.color)!
         mBlackLabel.text = "Black:   " + blackQuantity
@@ -31,7 +34,20 @@ class TonerDetailVC: UIViewController {
         mYellowLabel.text = "Yellow:    " +  yellowQuantity
         mMagentaLabel.text = "Magenta: " + magentaQuantity
         
-        mMakeModelLabel.font = UIFont.boldSystemFont(ofSize: mMakeModelLabel.font.pointSize)
+        mTModelLabel.textColor = UIColor.lightGray
+        mColorLabel.textColor = UIColor.lightGray
+        mBlackLabel.textColor = UIColor.lightGray
+        mCyanLabel.textColor = UIColor.lightGray
+        mYellowLabel.textColor = UIColor.lightGray
+        mMagentaLabel.textColor = UIColor.lightGray
+        
+        mMakeModelLabel.font = UIFont.boldSystemFont(ofSize: 19)
+        mTModelLabel.font = UIFont.systemFont(ofSize: 17)
+        mColorLabel.font = UIFont.systemFont(ofSize: 17)
+        mBlackLabel.font = UIFont.systemFont(ofSize: 17)
+        mCyanLabel.font = UIFont.systemFont(ofSize: 17)
+        mYellowLabel.font = UIFont.systemFont(ofSize: 17)
+        mMagentaLabel.font = UIFont.systemFont(ofSize: 17)
         
         mMakeModelLabel.sizeToFit()
         mTModelLabel.sizeToFit()
@@ -48,6 +64,9 @@ class TonerDetailVC: UIViewController {
         
     }
     
+    /**
+     Passes Toner object to TonerUpdateVC
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? TonerUpdateVC{
             vc.mSelectedToner = mSelectedToner

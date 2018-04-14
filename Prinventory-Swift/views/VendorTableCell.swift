@@ -11,7 +11,7 @@ class VendorTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        mNameLabel.font = UIFont.boldSystemFont(ofSize: mNameLabel.font.pointSize)
+        mNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
