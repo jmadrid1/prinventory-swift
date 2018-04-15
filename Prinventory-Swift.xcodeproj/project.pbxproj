@@ -30,85 +30,11 @@
 		2E5C6CA22045EE3200711890 /* VendorAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C6CA12045EE3200711890 /* VendorAddVC.swift */; };
 		2E5C6CA42045EE3200711890 /* VendorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C6CA32045EE3200711890 /* VendorDetailVC.swift */; };
 		2E5C6CA62045EE3200711890 /* VendorUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C6CA52045EE3200711890 /* VendorUpdateVC.swift */; };
-		2E6C8EE92049536400E1BEC6 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E282CDD2048B34000B02489 /* SQLite.framework */; };
-		2E6C8EEA2049536400E1BEC6 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E282CDD2048B34000B02489 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BDC687E3C4D988F9A73690BD /* Pods_Prinventory_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CD1CB798E628E53FF1D4ED /* Pods_Prinventory_Swift.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2E282CDC2048B34000B02489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
-			remoteInfo = "SQLite iOS";
-		};
-		2E282CDE2048B34000B02489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
-			remoteInfo = "SQLiteTests iOS";
-		};
-		2E282CE02048B34000B02489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
-			remoteInfo = "SQLite Mac";
-		};
-		2E282CE22048B34000B02489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
-			remoteInfo = "SQLiteTests Mac";
-		};
-		2E282CE42048B34000B02489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
-			remoteInfo = "SQLite tvOS";
-		};
-		2E282CE62048B34000B02489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
-			remoteInfo = "SQLiteTests tvOS";
-		};
-		2E282CE82048B34000B02489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A121AC451CA35C79005A31D1;
-			remoteInfo = "SQLite watchOS";
-		};
-		2E6C8EEB2049536400E1BEC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
-			remoteInfo = "SQLite iOS";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		2E6C8EED2049536400E1BEC6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2E6C8EEA2049536400E1BEC6 /* SQLite.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		2E282CD22048B34000B02489 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		253FAB6DD83767219A3A548D /* Pods-Prinventory-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prinventory-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prinventory-Swift/Pods-Prinventory-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		2E282CF02048B38C00B02489 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		2E5C6C6B2045ED7100711890 /* Prinventory-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prinventory-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E5C6C6E2045ED7100711890 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +60,8 @@
 		2E5C6CA12045EE3200711890 /* VendorAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorAddVC.swift; sourceTree = "<group>"; };
 		2E5C6CA32045EE3200711890 /* VendorDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorDetailVC.swift; sourceTree = "<group>"; };
 		2E5C6CA52045EE3200711890 /* VendorUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorUpdateVC.swift; sourceTree = "<group>"; };
+		891DABABD2F5B75B2CF74EFA /* Pods-Prinventory-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prinventory-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prinventory-Swift/Pods-Prinventory-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		E2CD1CB798E628E53FF1D4ED /* Pods_Prinventory_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prinventory_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,25 +69,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E6C8EE92049536400E1BEC6 /* SQLite.framework in Frameworks */,
+				BDC687E3C4D988F9A73690BD /* Pods_Prinventory_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E282CD32048B34000B02489 /* Products */ = {
+		1672100E5E2F0B103565EF2A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2E282CDD2048B34000B02489 /* SQLite.framework */,
-				2E282CDF2048B34000B02489 /* SQLiteTests iOS.xctest */,
-				2E282CE12048B34000B02489 /* SQLite.framework */,
-				2E282CE32048B34000B02489 /* SQLiteTests Mac.xctest */,
-				2E282CE52048B34000B02489 /* SQLite.framework */,
-				2E282CE72048B34000B02489 /* SQLiteTests tvOS.xctest */,
-				2E282CE92048B34000B02489 /* SQLite.framework */,
+				253FAB6DD83767219A3A548D /* Pods-Prinventory-Swift.debug.xcconfig */,
+				891DABABD2F5B75B2CF74EFA /* Pods-Prinventory-Swift.release.xcconfig */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		2E282CEF2048B37200B02489 /* database */ = {
@@ -173,6 +96,7 @@
 		2E282CF32048B43B00B02489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2CD1CB798E628E53FF1D4ED /* Pods_Prinventory_Swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -180,10 +104,10 @@
 		2E5C6C622045ED7000711890 = {
 			isa = PBXGroup;
 			children = (
-				2E282CD22048B34000B02489 /* SQLite.xcodeproj */,
 				2E5C6C6D2045ED7100711890 /* Prinventory-Swift */,
 				2E5C6C6C2045ED7100711890 /* Products */,
 				2E282CF32048B43B00B02489 /* Frameworks */,
+				1672100E5E2F0B103565EF2A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,15 +181,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E5C6C7D2045ED7100711890 /* Build configuration list for PBXNativeTarget "Prinventory-Swift" */;
 			buildPhases = (
+				C564D1969E6299E96AE11C01 /* [CP] Check Pods Manifest.lock */,
 				2E5C6C672045ED7100711890 /* Sources */,
 				2E5C6C682045ED7100711890 /* Frameworks */,
 				2E5C6C692045ED7100711890 /* Resources */,
-				2E6C8EED2049536400E1BEC6 /* Embed Frameworks */,
+				4FB64F397AFAB726637CF045 /* [CP] Embed Pods Frameworks */,
+				DAF4BAC1B593FF37FCAE2946 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2E6C8EEC2049536400E1BEC6 /* PBXTargetDependency */,
 			);
 			name = "Prinventory-Swift";
 			productName = "Prinventory-Swift";
@@ -299,70 +224,12 @@
 			mainGroup = 2E5C6C622045ED7000711890;
 			productRefGroup = 2E5C6C6C2045ED7100711890 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2E282CD32048B34000B02489 /* Products */;
-					ProjectRef = 2E282CD22048B34000B02489 /* SQLite.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2E5C6C6A2045ED7100711890 /* Prinventory-Swift */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2E282CDD2048B34000B02489 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 2E282CDC2048B34000B02489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2E282CDF2048B34000B02489 /* SQLiteTests iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests iOS.xctest";
-			remoteRef = 2E282CDE2048B34000B02489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2E282CE12048B34000B02489 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 2E282CE02048B34000B02489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2E282CE32048B34000B02489 /* SQLiteTests Mac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests Mac.xctest";
-			remoteRef = 2E282CE22048B34000B02489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2E282CE52048B34000B02489 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 2E282CE42048B34000B02489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2E282CE72048B34000B02489 /* SQLiteTests tvOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests tvOS.xctest";
-			remoteRef = 2E282CE62048B34000B02489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2E282CE92048B34000B02489 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 2E282CE82048B34000B02489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2E5C6C692045ED7100711890 /* Resources */ = {
@@ -376,6 +243,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4FB64F397AFAB726637CF045 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Prinventory-Swift/Pods-Prinventory-Swift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prinventory-Swift/Pods-Prinventory-Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C564D1969E6299E96AE11C01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Prinventory-Swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAF4BAC1B593FF37FCAE2946 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prinventory-Swift/Pods-Prinventory-Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2E5C6C672045ED7100711890 /* Sources */ = {
@@ -406,14 +329,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2E6C8EEC2049536400E1BEC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SQLite iOS";
-			targetProxy = 2E6C8EEB2049536400E1BEC6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2E5C6C722045ED7100711890 /* Main.storyboard */ = {
@@ -544,8 +459,8 @@
 		};
 		2E5C6C7E2045ED7100711890 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 253FAB6DD83767219A3A548D /* Pods-Prinventory-Swift.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VAHY424V2;
@@ -560,8 +475,8 @@
 		};
 		2E5C6C7F2045ED7100711890 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 891DABABD2F5B75B2CF74EFA /* Pods-Prinventory-Swift.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VAHY424V2;
