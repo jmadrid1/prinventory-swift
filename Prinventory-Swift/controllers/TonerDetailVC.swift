@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 class TonerDetailVC: UIViewController {
     
@@ -31,8 +32,8 @@ class TonerDetailVC: UIViewController {
         mColorLabel.text = "Color:   " + (mSelectedToner?.color)!
         mBlackLabel.text = "Black:   " + blackQuantity
         mCyanLabel.text = "Cyan:   " + cyanQuantity
-        mYellowLabel.text = "Yellow:    " +  yellowQuantity
-        mMagentaLabel.text = "Magenta: " + magentaQuantity
+        mYellowLabel.text = "Yellow:   " +  yellowQuantity
+        mMagentaLabel.text = "Magenta:  " + magentaQuantity
         
         mTModelLabel.textColor = UIColor.lightGray
         mColorLabel.textColor = UIColor.lightGray
@@ -57,6 +58,62 @@ class TonerDetailVC: UIViewController {
         mCyanLabel.sizeToFit()
         mYellowLabel.sizeToFit()
         mMagentaLabel.sizeToFit()
+        
+        mIconImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().inset(-130)
+            make.height.equalTo(141)
+            make.width.equalTo(138)
+        }
+        
+        mMakeModelLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-30)
+            make.height.equalTo(211)
+            make.width.equalTo(138)
+        }
+        
+        mTModelLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(293)
+            make.height.equalTo(51)
+        }
+        
+        mColorLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(50)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(120)
+            make.height.equalTo(21)
+        }
+        
+        mBlackLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(80)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(108)
+            make.height.equalTo(21)
+        }
+        
+        mCyanLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(110)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(108)
+            make.height.equalTo(21)
+        }
+        
+        mYellowLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(140)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(108)
+            make.height.equalTo(51)
+        }
+        
+        mMagentaLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(170)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(108)
+            make.height.equalTo(21)
+        }
     }
     
     override func didReceiveMemoryWarning() {

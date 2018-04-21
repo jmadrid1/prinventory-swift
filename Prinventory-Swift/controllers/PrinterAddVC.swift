@@ -95,16 +95,193 @@ class PrinterAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         mModelTextField.returnKeyType = .done
         mTModelTextField.returnKeyType = .done
         mSerialTextField.returnKeyType = .done
-        mSerialTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
         mOwnerTextField.returnKeyType = .done
         mDeptTextField.returnKeyType = .done
         mLocationTextField.returnKeyType = .done
         mFloorTextField.returnKeyType = .done
         mIPTextField.keyboardType = UIKeyboardType.numberPad
         
+        mMakeTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mModelTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mTModelTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+        mSerialTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+        mOwnerTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mDeptTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mLocationTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mFloorTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mIPTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        
         addDoneButton()
         
         mSaveButton.titleLabel?.text = "Save"
+        
+        mIconImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-125)
+            make.centerY.equalToSuperview().inset(-130)
+            make.height.equalTo(104)
+            make.width.equalTo(102)
+        }
+        
+        mMakeLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-25)
+            make.centerY.equalToSuperview().offset(-226)
+            make.width.equalTo(39)
+            make.height.equalTo(17)
+        }
+    
+        mModelLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-30)
+            make.centerY.equalToSuperview().offset(-182)
+            make.width.equalTo(44)
+            make.height.equalTo(17)
+        }
+        
+        mTModelLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-32)
+            make.centerY.equalToSuperview().offset(-140)
+            make.width.equalTo(53)
+            make.height.equalTo(17)
+        }
+        
+        mSerialLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-30)
+            make.centerY.equalToSuperview().offset(-98)
+            make.width.equalTo(41)
+            make.height.equalTo(17)
+        }
+        
+        mStatusLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-35)
+            make.centerY.equalToSuperview().offset(-56)
+            make.width.equalTo(46)
+            make.height.equalTo(17)
+        }
+        
+        mColorLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-35)
+            make.centerY.equalToSuperview().offset(-15)
+            make.width.equalTo(39)
+            make.height.equalTo(17)
+        }
+        
+        mOwnerLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-33)
+            make.centerY.equalToSuperview().offset(30)
+            make.width.equalTo(47)
+            make.height.equalTo(17)
+        }
+        
+        mDeptLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-45)
+            make.centerY.equalToSuperview().offset(75)
+            make.width.equalTo(82)
+            make.height.equalTo(17)
+        }
+        
+        mLocationLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-40)
+            make.centerY.equalToSuperview().offset(120)
+            make.width.equalTo(60)
+            make.height.equalTo(17)
+        }
+        
+        mFloorLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-33)
+            make.centerY.equalToSuperview().offset(165)
+            make.width.equalTo(37)
+            make.height.equalTo(17)
+        }
+        
+        mIpLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-25)
+            make.centerY.equalToSuperview().offset(210)
+            make.width.equalTo(17)
+            make.height.equalTo(17)
+        }
+        
+        mMakeTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-226)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mModelTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-182)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+    
+        mTModelTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-140)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mSerialTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-98)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mStatusPicker.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-56)
+            make.width.equalTo(175)
+            make.height.equalTo(43)
+        }
+        
+        mColorPicker.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-15)
+            make.width.equalTo(175)
+            make.height.equalTo(43)
+        }
+        
+        mOwnerTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(30)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mDeptTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(75)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+    
+        mLocationTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(120)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mFloorTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(165)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mIPTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(40)
+            make.centerY.equalToSuperview().offset(210)
+            make.width.equalTo(84)
+            make.height.equalTo(30)
+        }
+        
+        mSaveButton.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(250)
+            make.width.equalTo(34)
+            make.height.equalTo(30)
+        }
     }
     
     

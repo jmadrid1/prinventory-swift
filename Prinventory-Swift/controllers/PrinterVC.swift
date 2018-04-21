@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
 
@@ -18,6 +19,33 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         
         mDatabase = Database()
         mDatabase?.createTable()
+        
+        mEmptyView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+        
+        mEmptyListImage.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.height.equalTo(88)
+            make.width.equalTo(124)
+        }
+        
+        mEmptyListLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(45)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(27)
+            make.width.equalTo(333)
+        }
+        
+        mPrinterTable.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
         
         mEmptyListImage.image = UIImage(named: "ic_list_empty.png")
         mEmptyListLabel.text = "There are currently no printers available to show"
@@ -72,12 +100,11 @@ class PrinterVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         
         let printer = mPrinterList[indexPath.row]
         
-        cell.mIconImage.image = UIImage(named: "ic_printer.png")
         
         cell.mMakeLabel.text = printer.make + " " + printer.model
         cell.mLocationLabel.text = "Location:    " + printer.location
-        cell.mIPLabel.text = "IP:    " + printer.ip
-        
+        cell.mIPLabel.text = "IP:  " + printer.ip
+
         cell.mMakeLabel.sizeToFit()
         cell.mLocationLabel.sizeToFit()
         cell.mIPLabel.sizeToFit()

@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 class VendorDetailVC: UIViewController {
 
@@ -48,6 +49,62 @@ class VendorDetailVC: UIViewController {
         mCityLabel.sizeToFit()
         mStateLabel.sizeToFit()
         mZipcodeLabel.sizeToFit()
+        
+        mIconImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().inset(-130)
+            make.height.equalTo(141)
+            make.width.equalTo(138)
+        }
+        
+        mNameLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-30)
+            make.height.equalTo(234)
+            make.width.equalTo(138)
+        }
+        
+        mPhoneLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(191)
+            make.height.equalTo(51)
+        }
+        
+        mEmailLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(50)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(293)
+            make.height.equalTo(31)
+        }
+        
+        mStreetLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(80)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(168)
+            make.height.equalTo(21)
+        }
+        
+        mCityLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(110)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(168)
+            make.height.equalTo(21)
+        }
+        
+        mStateLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(140)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(240)
+            make.height.equalTo(51)
+        }
+        
+        mZipcodeLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(170)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(291)
+            make.height.equalTo(31)
+        }
     }
     
     override func didReceiveMemoryWarning() {

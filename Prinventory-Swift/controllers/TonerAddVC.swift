@@ -69,10 +69,14 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         mModelTextField.returnKeyType = .done
         mTModelTextField.returnKeyType = .done
         
-        mBlackQuantityLabel.text = "Black:       " + String(mBlackStepper.value)
-        mCyanQuantityLabel.text = "Cyan:        " + String(mCyanStepper.value)
-        mYellowQuantityLabel.text = "Yellow:      " + String(mYellowStepper.value)
-        mMagentaQuantityLabel.text = "Magenta:  " + String(mMagentaStepper.value)
+        mMakeTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mModelTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        mTModelTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+                
+        mBlackQuantityLabel.text = "Black:       " + String(format: "%.f", mBlackStepper.value)
+        mCyanQuantityLabel.text = "Cyan:        " + String(format: "%.f", mCyanStepper.value)
+        mYellowQuantityLabel.text = "Yellow:      " + String(format: "%.f", mYellowStepper.value)
+        mMagentaQuantityLabel.text = "Magenta:   " + String(format: "%.f", mMagentaStepper.value)
         
         mBlackQuantityLabel.font = UIFont.systemFont(ofSize: 14)
         mCyanQuantityLabel.font = UIFont.systemFont(ofSize: 14)
@@ -85,6 +89,126 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         mMagentaQuantityLabel.sizeToFit()
         
         mSaveButton.titleLabel?.text = "Save"
+        
+        mIconImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-125)
+            make.centerY.equalToSuperview().inset(-130)
+            make.height.equalTo(104)
+            make.width.equalTo(102)
+        }
+        
+        mMakeLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(30)
+            make.centerY.equalToSuperview().offset(-182)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mModelLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-32)
+            make.centerY.equalToSuperview().offset(-140)
+            make.width.equalTo(53)
+            make.height.equalTo(17)
+        }
+        
+        mTModelLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-38)
+            make.centerY.equalToSuperview().offset(-98)
+            make.width.equalTo(53)
+            make.height.equalTo(17)
+        }
+        
+        mMakeTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-182)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mModelTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-140)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mTModelTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview().offset(-98)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mColorPicker.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-46)
+            make.width.equalTo(175)
+            make.height.equalTo(43)
+        }
+        
+        mBlackQuantityLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-63)
+            make.centerY.equalToSuperview().offset(11)
+            make.width.equalTo(94)
+            make.height.equalTo(29)
+        }
+        
+        mCyanQuantityLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-63)
+            make.centerY.equalToSuperview().offset(67)
+            make.width.equalTo(94)
+            make.height.equalTo(29)
+        }
+        
+        mYellowQuantityLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-66)
+            make.centerY.equalToSuperview().offset(133)
+            make.width.equalTo(90)
+            make.height.equalTo(21)
+        }
+        
+        mMagentaQuantityLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-66)
+            make.centerY.equalToSuperview().offset(199)
+            make.width.equalTo(94)
+            make.height.equalTo(29)
+        }
+        
+        mBlackStepper.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(50)
+            make.centerY.equalToSuperview().offset(10)
+            make.width.equalTo(47)
+            make.height.equalTo(21)
+        }
+        
+        mCyanStepper.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(49)
+            make.centerY.equalToSuperview().offset(65)
+            make.width.equalTo(44)
+            make.height.equalTo(21)
+        }
+        
+        mYellowStepper.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(54)
+            make.centerY.equalToSuperview().offset(130)
+            make.width.equalTo(54)
+            make.height.equalTo(21)
+        }
+        
+        mMagentaStepper.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(74)
+            make.centerY.equalToSuperview().offset(198)
+            make.width.equalTo(94)
+            make.height.equalTo(29)
+        }
+        
+        mSaveButton.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(260)
+            make.width.equalTo(34)
+            make.height.equalTo(30)
+        }
+        
     }
     
     
@@ -180,22 +304,22 @@ class TonerAddVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     @IBAction func blackSteps(_ sender: UIStepper) {
-        mBlackQuantityLabel.text = "Black:       " + String(sender.value)
+        mBlackQuantityLabel.text = "Black:        " + String(format: "%.f", sender.value)
         mBlackQuantityLabel.sizeToFit()
     }
     
     @IBAction func cyanSteps(_ sender: UIStepper) {
-        mCyanQuantityLabel.text = "Cyan:        " + String(sender.value)
+        mCyanQuantityLabel.text = "Cyan:        " + String(format: "%.f", sender.value)
         mCyanQuantityLabel.sizeToFit()
     }
     
     @IBAction func yellowSteps(_ sender: UIStepper) {
-        mYellowQuantityLabel.text = "Yellow:      " + String(sender.value)
+        mYellowQuantityLabel.text = "Yellow:      " + String(format: "%.f", sender.value)
         mYellowQuantityLabel.sizeToFit()
     }
     
     @IBAction func magentaSteps(_ sender: UIStepper) {
-        mMagentaQuantityLabel.text = "Magenta:  " + String(sender.value)
+        mMagentaQuantityLabel.text = "Magenta:   " + String(format: "%.f", sender.value)
         mMagentaQuantityLabel.sizeToFit()
     }
     

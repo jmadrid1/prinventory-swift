@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 class PrinterDetailVC: UIViewController {
 
@@ -22,6 +23,97 @@ class PrinterDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mStatusImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-120)
+            make.centerY.equalToSuperview().inset(-100)
+            make.height.equalTo(73)
+            make.width.equalTo(79)
+        }
+        
+        mIconImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().inset(-160)
+            make.height.equalTo(141)
+            make.width.equalTo(138)
+        }
+        
+        mColorImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().inset(120)
+            make.centerY.equalToSuperview().inset(-100)
+            make.height.equalTo(73)
+            make.width.equalTo(79)
+        }
+        
+        mMakeModelLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-60)
+            make.height.equalTo(141)
+            make.width.equalTo(138)
+        }
+        
+        mTModelLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(293)
+            make.height.equalTo(51)
+        }
+        
+        mSerialLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(30)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(293)
+            make.height.equalTo(31)
+        }
+        
+        mStatusLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(60)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(168)
+            make.height.equalTo(21)
+        }
+        
+        mColorLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(90)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(168)
+            make.height.equalTo(21)
+        }
+        
+        mOwnerLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(120)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(240)
+            make.height.equalTo(51)
+        }
+        
+        mDeptLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(150)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(291)
+            make.height.equalTo(31)
+        }
+        
+        mLocationLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(180)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(291)
+            make.height.equalTo(21)
+        }
+        
+        mFloorLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(210)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(187)
+            make.height.equalTo(21)
+        }
+        
+        mIPLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(240)
+            make.left.equalToSuperview().offset(65)
+            make.width.equalTo(88)
+            make.height.equalTo(21)
+        }
         
         mStatusImage.image = UIImage(named: "ic_status_active.png")
         mIconImage.image = UIImage(named: "ic_printer.png")

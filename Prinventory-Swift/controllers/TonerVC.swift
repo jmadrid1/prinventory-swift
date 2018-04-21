@@ -19,6 +19,33 @@ class TonerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         mDatabase = Database()
         mDatabase?.createTable()
         
+        mEmptyView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+        
+        mEmptyListImage.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.height.equalTo(88)
+            make.width.equalTo(124)
+        }
+        
+        mEmptyListLabel.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview().offset(45)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(27)
+            make.width.equalTo(333)
+        }
+        
+        mTonerTable.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+        
         mEmptyListImage.image = UIImage(named: "ic_list_empty.png")
         mEmptyListLabel.text = "There are currently no toners available to show"
         mEmptyListLabel.sizeToFit()

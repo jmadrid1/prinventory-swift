@@ -98,6 +98,118 @@ class VendorUpdateVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         addDoneButton()
         
         mSaveButton.titleLabel?.text = "Save Changes"
+        
+        mIconImage.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-125)
+            make.centerY.equalToSuperview().inset(-130)
+            make.height.equalTo(104)
+            make.width.equalTo(102)
+        }
+        
+        mNameLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-20)
+            make.centerY.equalToSuperview().offset(-156)
+            make.width.equalTo(42)
+            make.height.equalTo(17)
+        }
+        
+        mPhoneLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-20)
+            make.centerY.equalToSuperview().offset(-102)
+            make.width.equalTo(45)
+            make.height.equalTo(17)
+        }
+        
+        mEmailLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-48)
+            make.centerY.equalToSuperview().offset(-52)
+            make.width.equalTo(53)
+            make.height.equalTo(17)
+        }
+        
+        mStreetLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-43)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(44)
+            make.height.equalTo(17)
+        }
+        
+        mCityLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-145)
+            make.centerY.equalToSuperview().offset(50)
+            make.width.equalTo(46)
+            make.height.equalTo(17)
+        }
+        
+        mStateLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(15)
+            make.centerY.equalToSuperview().offset(50)
+            make.width.equalTo(39)
+            make.height.equalTo(17)
+        }
+        
+        mZipcodeLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-33)
+            make.centerY.equalToSuperview().offset(100)
+            make.width.equalTo(57)
+            make.height.equalTo(17)
+        }
+        
+        mNameTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(90)
+            make.centerY.equalToSuperview().offset(-156)
+            make.width.equalTo(160)
+            make.height.equalTo(30)
+        }
+        
+        mPhoneTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(90)
+            make.centerY.equalToSuperview().offset(-102)
+            make.width.equalTo(160)
+            make.height.equalTo(30)
+        }
+        
+        mEmailTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(70)
+            make.centerY.equalToSuperview().offset(-52)
+            make.width.equalTo(199)
+            make.height.equalTo(30)
+        }
+        
+        mStreetTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(85)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(199)
+            make.height.equalTo(30)
+        }
+        
+        mCityTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(-75)
+            make.centerY.equalToSuperview().offset(50)
+            make.width.equalTo(109)
+            make.height.equalTo(30)
+        }
+        
+        mStatePicker.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(105)
+            make.centerY.equalToSuperview().offset(50)
+            make.width.equalTo(122)
+            make.height.equalTo(38)
+        }
+        
+        mZipcodeTextField.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview().offset(89)
+            make.centerY.equalToSuperview().offset(100)
+            make.width.equalTo(174)
+            make.height.equalTo(30)
+        }
+        
+        mSaveButton.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(220)
+            make.width.equalTo(98)
+            make.height.equalTo(30)
+        }
     }
     
     override func didReceiveMemoryWarning() {
